@@ -23,24 +23,23 @@ class Person {
 }
 
 class Form {
-    constructor(formEl = document.getElementById('form')) {
+    constructor(formEl) {
         this.formEl = formEl
-        this.nameInput = formEl.querySelector('#name')
-        this.ageInput = formEl.querySelector('#age')
+        this.nameInput = formEl.querySelector('#name');
+        this.ageInput = formEl.querySelector('#age');
         this.occupationInput = formEl.querySelector('#occupation');
-        const button = formEl.querySelector('#buttonSend');
-        button.addEventListener('submit',this.handleSubmit);
+        formEl.addEventListener('submit',event => this.handleSubmit(event));
     }
 
     handleSubmit(event) {
         event.preventDefault()
-        const name = this.nameInput.value;
-        const age = this.ageInput.value;
-        const occupation = this.occupationInput.value;
-        const person = new Person(name, age, occupation);
+        const person = new Person(`${this.nameInput.value}`, `${this.ageInput.value}`, `${this.occupationInput.value}`);
         const paragraph = document.getElementById('text');
         paragraph.innerText = person.introduction()
         this.formEl.reset()
     }
 }
+
+const form = document.getElementById('form')
+const formMain = new Form(form)
 
