@@ -9,7 +9,6 @@
 // Усі поля обов'язкові до заповнення, мінімальна довжина імені 10 символів,
 // Після успішного додавання користувача форма повинна очиститись і знову бути готова до роботи
 
-const paragraph = document.getElementById('text');
 
 class Person {
     constructor(name, age, occupation) {
@@ -39,6 +38,7 @@ class Form {
         const age = this.ageInput.value;
         const occupation = this.occupationInput.value;
         const person = new Person(name, age, occupation);
+        const paragraph = document.getElementById('text');
         paragraph.innerText = person.introduction()
         this.formEl.reset()
     }
