@@ -25,10 +25,10 @@ class Person {
 class Form {
     constructor(formEl = document.getElementById('form')) {
         this.formEl = formEl
-        this.nameInput = formEl.getElementById('name');
-        this.ageInput = formEl.getElementById('age');
-        this.occupationInput = formEl.getElementById('occupation');
-        const button = formEl.getElementById('buttonSend');
+        this.nameInput = formEl.querySelector('#name')
+        this.ageInput = formEl.querySelector('#age')
+        this.occupationInput = formEl.querySelector('#occupation');
+        const button = formEl.querySelector('#buttonSend');
         button.addEventListener('submit',this.handleSubmit);
     }
 
